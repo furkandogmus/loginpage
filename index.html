@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box">
+        <div class="form">
+            <h2 id="txt">Sign In</h2>
+            <div class="inputBox">
+                <input type="text" required="required">
+                <span>Username</span>
+                <i></i >
+            </div>
+            <div class="inputBox">
+                <input type="password" required="required">
+                <span>Password</span>
+                <i></i >
+            </div>
+            <div class="links">
+                <a href="#" id="frgt">Forgot Password</a>
+                <a href="#" id="sUp">Sign Up</a>
+            </div>
+            <input type="submit" value="Login" id="btn">
+        </div>
+    </div>
+           <div class="colors">
+            <span class="active" onclick="changeColor('#45f3ff')" style="--clr:#45f3ff;"></span>
+            <span onclick="changeColor('#ff6b6b')" style="--clr:#ff6b6b;"></span>
+            <span onclick="changeColor('#2e86de')" style="--clr:#2e86de;"></span>
+            <span onclick="changeColor('#f368e0')" style="--clr:#f368e0;"></span>
+            <span onclick="changeColor('#ff9f43')" style="--clr:#ff9f43;"></span>
+           
+        </div>
+        <script>
+            var styleElem = document.head.appendChild(document.createElement("style"));
+           
+            var nodes =document.getElementsByTagName("i");
+            
+            function changeColor(color){
+                styleElem.innerHTML = ".box:before,.box:after,#btn,i {background: "+color+";}"+"#txt,#sUp,#frgt:hover,.inputBox input:valid ~span,.inputBox input:focus ~span {color:"+color+";}";
+                
+                for(let i=0;i<nodes.length;i++){
+                    nodes[i].style.backgroundColor=color;      
+                }
+                document.querySelectorAll('span').forEach(function
+            (   item){
+                item.classList.remove('active');
+            })
+            event.target.classList.add('active');
+            }
+
+            
+        
+            
+        </script>
+</body>
+</html>
